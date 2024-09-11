@@ -1,11 +1,28 @@
 const container = document.querySelector(".container");
 const controls = document.querySelector(".controls");
+const changeBtn = document.querySelector("#resize");
+const sizeDisplay = document.querySelector("#sizeDisplay");
+const DEFAULT_SIZE = 16;
+const MIN_SIZE = 4;
+const MAX_SIZE = 100;
 
-function createGrid(xWide, yTall) {
-    for(let i = 0;i < yTall;i++){ // how many rows?
+createGrid(DEFAULT_SIZE);
+
+changeBtn.addEventListener("click", (e) => {
+    let answer = prompt("How many pixels wide would you like?", 
+                        "Enter an integer from " + MIN_SIZE +
+                        "-" + MAX_SIZE + " [default: " + DEFAULT_SIZE + "]");
+    if(isNaN(answer)) createGrid(DEFAULT_SIZE);
+    else if(parseInt(answer) >= MIN_SIZE && parseInt(answer) <= MAX_SIZE) createGrid(answer);
+    else createGrid(DEFAULT_SIZE);
+});
+
+function createGrid(gridSize) {
+    container.textContent="";
+    for(let i = 0; i < gridSize; i++){ // how many rows?
         const row = document.createElement("div");
         row.className = "row";
-        for(let j = 0;j<xWide;j++) { // how many columns?
+        for(let j = 0; j<gridSize; j++) { // how many columns?
             const pixel = document.createElement("div");
             pixel.className = "pixel";
             pixel.id = getSelector(i, j);
@@ -16,6 +33,7 @@ function createGrid(xWide, yTall) {
         }
         container.appendChild(row);
     }
+    sizeDisplay.textContent = "Current Size: " + gridSize;
 }
 
 function getSelector(xCoord, yCoord) {
@@ -37,5 +55,3 @@ function randomColor() {
     return "#" + Math.floor(Math.random()*16777215).toString(16);
     // this returns a random number in that range, and then presents it in hexadecimal form
 }
-
-createGrid(16,16);

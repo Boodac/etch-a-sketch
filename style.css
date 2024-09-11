@@ -7,7 +7,7 @@
 
 body {
     display: flex;
-    justify-content: center;;
+    justify-content: center;
 }
 
 .container {
@@ -15,13 +15,15 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 99vh;
+    height: 90vh;
     aspect-ratio: 1/1;
 }
 
 .controls {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
 }
 
 .row {
@@ -33,4 +35,11 @@ body {
 .pixel {
     border: 1px solid black;
     flex: 1;
+}
+
+#resize {
+    padding: 1rem 2rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+    margin: auto;
 }
