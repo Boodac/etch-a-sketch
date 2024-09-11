@@ -7,16 +7,30 @@
 
 body {
     display: flex;
-    flex-direction: column;
+    justify-content: center;;
 }
 
 .container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 99vh;
+    aspect-ratio: 1/1;
 }
 
 .controls {
     display: flex;
     justify-content: center;
+}
+
+.row {
+    display: flex;
+    flex: 1 1 auto;
+    width: 100%;
+}
+
+.pixel {
+    border: 1px solid black;
+    flex: 1;
 }
