@@ -3,7 +3,7 @@ const controls = document.querySelector(".controls");
 const changeBtn = document.querySelector("#resize");
 const sizeDisplay = document.querySelector("#sizeDisplay");
 const DEFAULT_SIZE = 16;
-const MIN_SIZE = 4;
+const MIN_SIZE = 1;
 const MAX_SIZE = 100;
 
 createGrid(DEFAULT_SIZE);
